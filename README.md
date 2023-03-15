@@ -1,1 +1,2 @@
-# 01. Import Users_Skeleton (ProductShop)
+JSONProcessingExercisePart1
+Exercises from SoftUni C# Entity Framework Core Course (Lecture: JSON Processing Exercise)
