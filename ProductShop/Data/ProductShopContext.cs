@@ -45,6 +45,7 @@ public class ProductShopContext : DbContext
             entity.HasMany(x => x.ProductsBought)
                   .WithOne(x => x.Buyer)
                   .HasForeignKey(x => x.BuyerId)
+                  .IsRequired(false)
                   .OnDelete(DeleteBehavior.NoAction);
 
             entity.HasMany(x => x.ProductsSold)

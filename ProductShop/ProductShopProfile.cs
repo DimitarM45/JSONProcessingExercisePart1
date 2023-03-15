@@ -22,8 +22,16 @@ public class ProductShopProfile : Profile
 
         CreateMap<User, ExportUserProductsDto>()
             .ForMember(u => u.SoldProducts,
-                opt => opt.MapFrom(src => src.ProductsSold));
+                otp => otp.MapFrom(src => src.ProductsSold));
 
         CreateMap<Product, ExportProductUserDto>();
+
+        CreateMap<Category, ExportCategoryDto>()
+            .ForMember(c => c.ProductsCount,
+                otp => otp.MapFrom(src => src.CategoriesProducts.Count))
+            .ForMember(c => c.AveragePrice,
+                otp => otp.MapFrom(src => $"{src.CategoriesProducts.Average(cp => cp.Product.Price):f2}"))
+            .ForMember(c => c.TotalRevenue,
+                otp => otp.MapFrom(src => $"{src.CategoriesProducts.Sum(cp => cp.Product.Price):f2}"));
     }
 }

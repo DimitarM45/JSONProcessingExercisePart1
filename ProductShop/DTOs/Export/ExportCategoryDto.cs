@@ -14,9 +14,9 @@ public class ExportCategoryDto
 
     [JsonProperty("averagePrice")]
 
-    public decimal AveragePrice { get; set; }
+    public string? AveragePrice { get; set; }
 
     [JsonProperty("totalRevenue")]
 
-    public decimal TotalRevenue { get; set; }
+    public string? TotalRevenue { get; set; }
 }
